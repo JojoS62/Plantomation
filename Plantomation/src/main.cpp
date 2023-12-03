@@ -70,10 +70,10 @@ TaskHandle_t WebTasks;
 StaticJsonDocument<1024> mainJson;
 
 PlantControlChannelGroup pccg(mainJson);
-PlantControlChannel pcc1(pccg, "flower 1");
-PlantControlChannel pcc2(pccg, "flower 2");
-PlantControlChannel pcc3(pccg, "flower 3");
-PlantControlChannel pcc4(pccg, "flower 4");
+PlantControlChannel pcc1(pccg, "flower 1", LED1, v1, s1);
+PlantControlChannel pcc2(pccg, "flower 2", LED2, v2, s2);
+PlantControlChannel pcc3(pccg, "flower 3", LED2, v3, s3);
+PlantControlChannel pcc4(pccg, "flower 4", LED2, v4, s4);
 
 char html_out_buffer[200];
 String Name1="", Name2="", Name3="", Name4="";
@@ -109,6 +109,9 @@ void setup()
 
   printf("PlantControlChannels:\n");
   pccg.printConfig();
+
+  printf("json:\n");
+  pccg.processAll();
 
   //create special task for OTA and Webserver on seperate core
   xTaskCreatePinnedToCore(
