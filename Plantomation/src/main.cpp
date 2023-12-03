@@ -14,6 +14,7 @@
 #include <ArduinoOTA.h>
 
 #include "sites.h"
+#include "PlantControlChannelGroup.h"
 
 #if __has_include("credentials.h")
 #include "credentials.h"
@@ -66,6 +67,12 @@ AsyncWebServer server(80); // Object of WebServer(HTTP port, 80 is defult)
 
 TaskHandle_t WebTasks;
 
+PlantControlChannelGroup pccg;
+PlantControlChannel pcc1(pccg, "flower 1");
+PlantControlChannel pcc2(pccg, "flower 2");
+PlantControlChannel pcc3(pccg, "flower 3");
+PlantControlChannel pcc4(pccg, "flower 4");
+
 char html_out_buffer[200];
 String Name1="", Name2="", Name3="", Name4="";
 uint8_t checkstate1=0, checkstate2=0, checkstate3=0, checkstate4=0;
@@ -98,6 +105,8 @@ void setup()
   Serial.println(WiFi.localIP());
   delay(500);
 
+  printf("PlantControlChannels:\n");
+  pccg.printConfig();
 
   //create special task for OTA and Webserver on seperate core
   xTaskCreatePinnedToCore(
