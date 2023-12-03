@@ -4,7 +4,10 @@
 
 PlantControlChannel::PlantControlChannel(PlantControlChannelGroup &pcg, const char* name) :
  pcg(pcg),
- name(name)
+ name(name),
+ valveStatus(false),
+ ledStatus(false),
+ sensorStatus(50.0f)
 {
     pcg.addChannel(*this);
 }

@@ -7,6 +7,7 @@
 #include "time.h"
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
+#include <ArduinoJson.h>
 
 // OTA
 #include <ESPmDNS.h>
@@ -66,8 +67,9 @@ AsyncWebServer server(80); // Object of WebServer(HTTP port, 80 is defult)
 //#define serial_debug
 
 TaskHandle_t WebTasks;
+StaticJsonDocument<1024> mainJson;
 
-PlantControlChannelGroup pccg;
+PlantControlChannelGroup pccg(mainJson);
 PlantControlChannel pcc1(pccg, "flower 1");
 PlantControlChannel pcc2(pccg, "flower 2");
 PlantControlChannel pcc3(pccg, "flower 3");

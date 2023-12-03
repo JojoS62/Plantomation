@@ -1,6 +1,7 @@
 #include "PlantControlChannelGroup.h"
 
-PlantControlChannelGroup::PlantControlChannelGroup(/* args */)
+PlantControlChannelGroup::PlantControlChannelGroup(JsonDocument &json) :
+    json(json)
 {
 }
 
