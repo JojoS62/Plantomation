@@ -25,7 +25,7 @@ PlantControlChannel::~PlantControlChannel()
 float PlantControlChannel::getSensorValue()
 {
     // float val = analogRead(pinSensor) / 65535.0f * 100.0f;  // as percent
-    float val = rand() / 65535.0f * 100.0f;  // as percent
+    float val = (float)rand() / RAND_MAX * 100.0f;  // as percent
     
     return val;
 }

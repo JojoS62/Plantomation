@@ -21,6 +21,7 @@ void PlantControlChannelGroup::processAll()
     }
 
     serializeJson(json, Serial);
+    printf("\n");
 }
 
 void PlantControlChannelGroup::printConfig()

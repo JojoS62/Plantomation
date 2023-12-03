@@ -110,9 +110,6 @@ void setup()
   printf("PlantControlChannels:\n");
   pccg.printConfig();
 
-  printf("json:\n");
-  pccg.processAll();
-
   //create special task for OTA and Webserver on seperate core
   xTaskCreatePinnedToCore(
       Web_Tasks, /* Task function. */
@@ -154,6 +151,9 @@ void loop()
   digitalWrite(2, LOW);
   delay(1000);
   digitalWrite(2, HIGH);
+
+  printf("json:\n");
+  pccg.processAll();
 
   if(sensor1 < 100)
     sensor1++;
