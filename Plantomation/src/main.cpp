@@ -75,7 +75,7 @@ PlantControlChannel pcc2(pccg, "flower 2", LED2, v2, s2);
 PlantControlChannel pcc3(pccg, "flower 3", LED2, v3, s3);
 PlantControlChannel pcc4(pccg, "flower 4", LED2, v4, s4);
 
-char html_out_buffer[200];
+char html_out_buffer[512];
 String Name1="", Name2="", Name3="", Name4="";
 uint8_t checkstate1=0, checkstate2=0, checkstate3=0, checkstate4=0;
 uint8_t hume1=0, hume2=0, hume3=0, hume4=0;
